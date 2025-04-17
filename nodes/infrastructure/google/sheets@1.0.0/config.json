@@ -1,0 +1,120 @@
+{
+    "name": "google-sheets",
+    "version": "1.0.0",
+    "description": "Google Sheets Api manager",
+    "group": "API",
+    "config": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "serviceAccountKey": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "project_id": {
+                                "type": "string"
+                            },
+                            "private_key_id": {
+                                "type": "string"
+                            },
+                            "private_key": {
+                                "type": "string"
+                            },
+                            "client_email": {
+                                "type": "string"
+                            },
+                            "client_id": {
+                                "type": "string"
+                            },
+                            "auth_uri": {
+                                "type": "string"
+                            },
+                            "token_uri": {
+                                "type": "string"
+                            },
+                            "auth_provider_x509_cert_url": {
+                                "type": "string"
+                            },
+                            "client_x509_cert_url": {
+                                "type": "string"
+                            },
+                            "universe_domain": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "project_id",
+                            "private_key_id",
+                            "private_key",
+                            "client_email",
+                            "client_id",
+                            "auth_uri",
+                            "token_uri",
+                            "auth_provider_x509_cert_url",
+                            "client_x509_cert_url",
+                            "universe_domain"
+                        ]
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "action": {
+                        "type": "string"
+                    },
+                    "configuration": {
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "type",
+                    "action"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "serviceAccountKey": {
+                    "type": "service_account",
+                    "project_id": "<project_id>",
+                    "private_key_id": "<private_key_id>",
+                    "private_key": "<private_key>",
+                    "client_email": "<client_email>",
+                    "client_id": "<client_id>",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "<client_x509_cert_url>",
+                    "universe_domain": "googleapis.com"
+                },
+                "properties": {
+                    "type": "values",
+                    "action": "get",
+                    "configuration": {
+                        "spreadsheetid": "<spreadsheetid>",
+                        "range": "<range>",
+                        "valueInputOption": "USER_ENTERED"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node can receive any input."
+    },
+    "output": {
+        "type": "array",
+        "description": "This node will output the result of the google calendar's api call."
+    },
+    "steps": false,
+    "functions": []
+}

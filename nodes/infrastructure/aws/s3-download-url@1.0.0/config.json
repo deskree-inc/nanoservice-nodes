@@ -1,0 +1,138 @@
+{
+    "name": "aws-s3-storage-download-url",
+    "version": "1.0.0",
+    "description": "This module is used to get the download URL of a file from AWS S3 storage",
+    "group": "STORAGE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "awsConfig": {
+                        "type": "object",
+                        "properties": {
+                            "accessKeyId": {
+                                "type": "string",
+                                "description": "Your AWS Access Key ID"
+                            },
+                            "secretAccessKey": {
+                                "type": "string",
+                                "description": "Your AWS Secret Access Key"
+                            },
+                            "sessionToken": {
+                                "type": "string",
+                                "description": "Your AWS Session Token (if using temporary credentials)"
+                            },
+                            "region": {
+                                "type": "string",
+                                "description": "The AWS region where your S3 bucket is located"
+                            }
+                        },
+                        "required": [
+                            "accessKeyId",
+                            "secretAccessKey",
+                            "region"
+                        ]
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "bucket": {
+                                "type": "string",
+                                "description": "The name of your AWS S3 bucket"
+                            },
+                            "remoteFileName": {
+                                "type": "string",
+                                "description": "The path/key of the file in the S3 bucket"
+                            }
+                        },
+                        "required": [
+                            "bucket",
+                            "remoteFileName"
+                        ]
+                    },
+                    "signedUrlConfig": {
+                        "type": "object",
+                        "properties": {
+                            "Expires": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "number"
+                                    }
+                                ],
+                                "description": "Time in seconds before the presigned URL expires"
+                            },
+                            "ResponseContentType": {
+                                "type": "string",
+                                "description": "Sets the Content-Type header of the response"
+                            },
+                            "ResponseContentLanguage": {
+                                "type": "string",
+                                "description": "Sets the Content-Language header of the response"
+                            },
+                            "ResponseExpires": {
+                                "type": "string",
+                                "description": "Sets the Expires header of the response (in HTTP-date format)"
+                            },
+                            "ResponseCacheControl": {
+                                "type": "string",
+                                "description": "Sets the Cache-Control header of the response"
+                            },
+                            "ResponseContentDisposition": {
+                                "type": "string",
+                                "description": "Sets the Content-Disposition header of the response"
+                            },
+                            "ResponseContentEncoding": {
+                                "type": "string",
+                                "description": "Sets the Content-Encoding header of the response"
+                            }
+                        },
+                        "required": [
+                            "Expires"
+                        ]
+                    }
+                }
+            }
+        },
+        "example": {
+            "inputs": {
+                "awsConfig": {
+                    "accessKeyId": "<YOUR_AWS_ACCESS_KEY_ID>",
+                    "secretAccessKey": "<YOUR_AWS_SECRET_ACCESS_KEY>",
+                    "region": "us-west-2"
+                },
+                "properties": {
+                    "bucket": "your-s3-bucket-name",
+                    "remoteFileName": "path/to/your/file.txt"
+                },
+                "signedUrlConfig": {
+                    "Expires": 3600,
+                    "ResponseContentDisposition": "attachment; filename=\"your-file-name.ext\""
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "The input of this module includes AWS configurations, S3 bucket details, and the remote file name",
+        "properties": {
+            "remoteFileName": {
+                "type": "string",
+                "description": "The path/key of the file in the S3 bucket"
+            }
+        },
+        "required": [
+            "remoteFileName"
+        ]
+    },
+    "output": {
+        "type": "string",
+        "description": "The output of this module is the download URL of the file from AWS S3 storage"
+    },
+    "steps": true,
+    "functions": []
+}

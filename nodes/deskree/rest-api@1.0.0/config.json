@@ -1,0 +1,37 @@
+{
+    "name": "deskree-rest-api",
+    "version": "1.0.0",
+    "description": "This node enables the use of a CRUD REST API for Firebase",
+    "group": "DESKREE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": ["collection", "postman", "storage"]
+                    }
+                },
+                "required": ["type"]
+            }
+        },
+        "required": ["inputs"],
+        "example": {
+            "inputs": {
+                "type": "collection"
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

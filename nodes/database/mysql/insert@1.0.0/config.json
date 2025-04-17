@@ -1,0 +1,71 @@
+{
+    "name": "mysql-insert",
+    "version": "1.0.0",
+    "description": "Node that allows you to insert records into a MySQL database",
+    "group": "NEW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "connection": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The host of the MySQL server",
+                        "default": "localhost"
+                    },
+                    "port": {
+                        "type": "number",
+                        "description": "The port of the MySQL server",
+                        "default": 3306
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "The user of the MySQL server",
+                        "default": "root"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password of the MySQL server",
+                        "default": ""
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database of the MySQL server",
+                        "default": "test"
+                    }
+                }
+            },
+            "table": {
+                "type": "string",
+                "description": "The table of the MySQL server",
+                "default": "test"
+            }
+        },
+        "required": [
+            "connection",
+            "table"
+        ],
+        "additionalProperties": false,
+        "example": {
+            "connection": {
+                "host": "127.0.0.1",
+                "port": 3306,
+                "user": "<user>",
+                "password": "<password>",
+                "database": "<database>"
+            },
+            "table": "<table_name>"
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "The input of this node is an object with the fields to insert into the table."
+    },
+    "output": {
+        "type": "object",
+        "description": "The output of this node is the object inserted"
+    },
+    "steps": false,
+    "functions": []
+}

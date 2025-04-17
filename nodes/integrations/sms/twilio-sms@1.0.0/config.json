@@ -1,0 +1,60 @@
+{
+  "name": "twilio-sms",
+  "version": "1.0.0",
+  "description": "Twilio API",
+  "group": "SMS",
+  "config": {
+    "type": "object",
+    "properties": {
+      "accountSid": {
+        "type": "string",
+        "description": "Twilio Account SID"
+      },
+      "authToken": {
+        "type": "string",
+        "description": "Twilio Auth Token"
+      },
+      "from": {
+        "type": "string",
+        "description": "Twilio Phone Number"
+      },
+      "to": {
+        "type": "string",
+        "description": "Phone Number to send SMS to"
+      },
+      "body": {
+        "type": "string",
+        "description": "SMS Body"
+      },
+      "options": {
+        "type": "object",
+        "description": "Options allowed by twilio documentation"
+      }
+    },
+    "example": {
+      "inputs": {
+        "properties": {
+          "accountSid": "<accountSid>",
+          "authToken": "<authToken>",
+          "from": "<from>",
+          "to": "<to>",
+          "body": "<body>",
+          "options": {
+            "autoRetry": true,
+            "maxRetries": 3
+          }
+        }
+      }
+    }
+  },
+  "inputs": {
+    "type": "any",
+    "description": "The input of the node will be the data of the previous node"
+  },
+  "output": {
+    "type": "array",
+    "description": "The output of the node will be the data of the previous node"
+  },
+  "steps": false,
+  "functions": []
+}

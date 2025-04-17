@@ -1,0 +1,96 @@
+{
+    "name": "mysql-query",
+    "version": "1.0.0",
+    "description": "Node that executes a query on a MySQL database",
+    "group": "NEW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "connection": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The host of the MySQL server",
+                        "default": "localhost"
+                    },
+                    "port": {
+                        "type": "number",
+                        "description": "The port of the MySQL server",
+                        "default": 3306
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "The user of the MySQL server",
+                        "default": "root"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password of the MySQL server",
+                        "default": ""
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database of the MySQL server",
+                        "default": "test"
+                    }
+                }
+            },
+            "query": {
+                "type": "string",
+                "description": "The query to execute",
+                "default": "SELECT * FROM test"
+            },
+            "fields": {
+                "type": "string",
+                "description": "The fields of the MySQL server",
+                "default": "*",
+                "example": "id, name, age"
+            },
+            "table": {
+                "type": "string",
+                "description": "The table of the MySQL server",
+                "default": "test"
+            },
+            "where": {
+                "type": "object"
+            },
+            "limit": {
+                "type": "number",
+                "description": "The limit of the MySQL server",
+                "default": 10
+            }
+        },
+        "required": [
+            "connection",
+            "table"
+        ],
+        "additionalProperties": false,
+        "example": {
+            "connection": {
+                "host": "127.0.0.1",
+                "port": 3306,
+                "user": "<user>",
+                "password": "<password>",
+                "database": "<database>"
+            },
+            "query": "SELECT * FROM test",
+            "fields": "*",
+            "table": "<table_name>",
+            "where": {
+                "id": 1
+            },
+            "limit": 10
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This input of this node is any type."
+    },
+    "output": {
+        "type": "any",
+        "description": "The output of this node is the query result."
+    },
+    "steps": false,
+    "functions": []
+}

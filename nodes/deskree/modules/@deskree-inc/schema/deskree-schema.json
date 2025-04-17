@@ -1,0 +1,286 @@
+{
+  "general": {
+    "provider": "gcp",
+    "plan": "free"
+  },
+  "infrastructure": {
+    "location": {
+      "zone": "us-east1-b",
+      "region": "us-east1"
+    },
+    "services": {
+      "auth": {
+        "enabled": true,
+        "version": "1.1.33"
+      },
+      "rest": {
+        "enabled": true,
+        "version": "1.1.31"
+      },
+      "backup": {
+        "enabled": false,
+        "version": "1.0.2"
+      },
+      "config": {
+        "version": "1.1.4"
+      },
+      "graphql": {
+        "enabled": true,
+        "version": "1.3.6"
+      },
+      "webhooks": {
+        "version": "0.0.6"
+      },
+      "analytics": {
+        "version": "1.0.14"
+      },
+      "api_gateway": {
+        "version": "1.1.44"
+      },
+      "integrations": {
+        "asana": {
+          "config": {
+            "PERSONAL_ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.6"
+        },
+        "slack": {
+          "config": {
+            "TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.14"
+        },
+        "github": {
+          "config": {
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.17"
+        },
+        "openai": {
+          "config": {
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.1"
+        },
+        "stripe": {
+          "config": {
+            "SECRET_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.12"
+        },
+        "hubspot": {
+          "config": {
+            "PRIVATE_APP_ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.4"
+        },
+        "mailgun": {
+          "config": {
+            "YOUR_URL": "",
+            "PRIMARY_API_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.10"
+        },
+        "shopify": {
+          "config": {
+            "STORE_NAME": "",
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.10"
+        },
+        "webflow": {
+          "config": {
+            "API_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.11"
+        },
+        "affinity": {
+          "config": {
+            "API_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.3"
+        },
+        "sendgrid": {
+          "config": {
+            "API_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.9"
+        },
+        "typeform": {
+          "config": {
+            "PERSONAL_ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.4"
+        },
+        "mailchimp": {
+          "config": {
+            "DC": "",
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.3"
+        },
+        "bigcommerce": {
+          "config": {
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.3"
+        },
+        "shipstation": {
+          "config": {
+            "API_KEY": "",
+            "API_SECRET": ""
+          },
+          "enabled": false,
+          "version": "1.0.8"
+        },
+        "squarespace": {
+          "config": {
+            "API_KEY": ""
+          },
+          "enabled": false,
+          "version": "1.0.4"
+        },
+        "shutterstock": {
+          "config": {
+            "ACCESS_TOKEN": ""
+          },
+          "enabled": false,
+          "version": "1.0.9"
+        },
+        "activecampaign": {
+          "config": {
+            "API_KEY": "",
+            "YOUR_ACCOUNT_NAME": ""
+          },
+          "enabled": false,
+          "version": "1.0.5"
+        }
+      },
+      "data_export_import": {
+        "version": "1.0.5"
+      }
+    },
+    "identities": {
+      "email": {
+        "enabled": true
+      },
+      "github": {
+        "enabled": true,
+        "client_id": "",
+        "client_secret": ""
+      },
+      "google": {
+        "enabled": true,
+        "client_id": "",
+        "client_secret": ""
+      },
+      "facebook": {
+        "enabled": true,
+        "client_id": "",
+        "client_secret": ""
+      }
+    },
+    "project_name": "deskree-9a12e877-eba2-4347-8"
+  },
+  "databases": [
+    {
+      "type": "default",
+      "tables": [
+        {
+          "name": "users",
+          "order": 1,
+          "config": {
+            "createdAt": true,
+            "updatedAt": true,
+            "timezone": "America/Toronto"
+          },
+          "subCollections": [],
+          "model": {
+            "uid": "UID",
+            "email": "String",
+            "roles": "Array<string>",
+            "updatedAt": "String?",
+            "createdAt": "String?"
+          },
+          "webhooks": {
+            "get": [],
+            "patch": [],
+            "get_uid": []
+          }
+        },
+        {
+          "name": "products",
+          "order": 2,
+          "config": {
+            "createdAt": true,
+            "updatedAt": true,
+            "timezone": "America/Toronto"
+          },
+          "subCollections": [],
+          "model": {
+            "uid": "UID",
+            "name": "String",
+            "price": "Integer",
+            "author": "String",
+            "updatedAt": "String?",
+            "createdAt": "String?"
+          },
+          "webhooks": {
+            "post": ["https://webhook.site/0b1b2b1b-0b1b-0b1b-0b1b-0b1b2b1b2b1b"],
+            "delete": [],
+            "get": [],
+            "patch": [],
+            "get_uid": []
+          }
+        }
+      ]
+    }
+  ],
+  "permissions": {
+    "roles": [
+      {
+        "name": "user",
+        "uid": "TfP620aSy8gNCzxBwZ4T"
+      }
+    ],
+    "configs": [
+      {
+        "name": "collections",
+        "endpoints": [
+          {
+            "name": "users",
+            "methods": {
+              "get": "public",
+              "patch": "public",
+              "get_uid": "public"
+            }
+          },
+          {
+            "name": "products",
+            "methods": {
+              "get": "private",
+              "patch": "author",
+              "post": ["TfP620aSy8gNCzxBwZ4T"],
+              "delete": "author",
+              "get_uid": "admin"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

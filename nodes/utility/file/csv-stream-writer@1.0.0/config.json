@@ -1,0 +1,22 @@
+{
+  "name": "csv-stream-writer",
+  "version": "1.0.0",
+  "description": "Stream writes into CSV file",
+  "group": "MAPPERS",
+  "config": {},
+  "inputs": {
+    "type": "array",
+    "description": "The input of this node is an array of objects"
+  },
+  "output": {
+    "type": "object",
+    "description": "The output of this node is going to be an object with the batchID, the number of records and the file path"
+  },
+  "steps": {
+    "type": "boolean",
+    "default": false
+  },
+  "functions": {
+    "type": "array"
+  }
+}

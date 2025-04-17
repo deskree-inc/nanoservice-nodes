@@ -1,0 +1,71 @@
+{
+    "name": "mysql-rest",
+    "version": "1.0.0",
+    "description": "Node that create a rest api for mysql",
+    "group": "NEW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "connection": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The host of the MySQL server",
+                        "default": "localhost"
+                    },
+                    "port": {
+                        "type": "number",
+                        "description": "The port of the MySQL server",
+                        "default": 3306
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "The user of the MySQL server",
+                        "default": "root"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password of the MySQL server",
+                        "default": ""
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database of the MySQL server",
+                        "default": "test"
+                    }
+                }
+            },
+            "table": {
+                "type": "string",
+                "description": "The table to query",
+                "default": "test"
+            }
+        },
+        "required": [
+            "connection",
+            "table"
+        ],
+        "additionalProperties": false,
+        "example": {
+            "connection": {
+                "host": "127.0.0.1",
+                "port": 3306,
+                "user": "<user>",
+                "password": "<password>",
+                "database": "<database>"
+            },
+            "table": "<table_name>"
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node can receive any type of input"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output will be the result of the query"
+    },
+    "steps": false,
+    "functions": []
+}

@@ -1,0 +1,17 @@
+{
+    "name": "fix-json-key",
+    "version": "1.0.0",
+    "description": "Fix the JSON key",
+    "group": "JSON",
+    "config": {},
+    "inputs": {
+        "type": "object",
+        "description": "The JSON object to fix"
+    },
+    "output": {
+        "type": "object",
+        "description": "The fixed JSON object"
+    },
+    "steps": false,
+    "functions": []
+}

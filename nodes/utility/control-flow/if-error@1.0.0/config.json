@@ -1,0 +1,66 @@
+{
+    "name": "if-error",
+    "version": "1.0.0",
+    "description": "Conditional statement to validate a property",
+    "group": "JSON",
+    "config": {
+        "type": "object",
+        "properties": {
+            "condition": {
+                "type": "string"
+            },
+            "message": {
+                "type": ["string", "number", "object", "array", "boolean"]
+            },
+            "json": {
+                "type": ["string", "number", "object", "array", "boolean"]
+            },
+            "stack": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "code": {
+                "type": ["number", "string"]
+            },
+            "steps": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "node": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["name", "node", "type"]
+                    }
+                ]
+            }
+        },
+        "required": ["condition", "message"],
+        "example": {
+            "condition": "data.name === 'John'",
+            "message": "Name must be John",
+            "code": 422,
+            "steps": []
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node receives an object as input and validates the condition"
+    },
+    "output": {
+        "type": "error",
+        "description": "message message if the condition is not met"
+    },
+    "steps": false,
+    "functions": []
+}

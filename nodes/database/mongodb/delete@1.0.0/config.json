@@ -1,0 +1,67 @@
+{
+    "name": "mongodb-delete",
+    "version": "1.0.0",
+    "description": "Deletes a document into a mongodb collection",
+    "group": "DATABASE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "mongodbConnectionString": {
+                                "type": "string"
+                            },
+                            "database": {
+                                "type": "string"
+                            },
+                            "collection": {
+                                "type": "string"
+                            },
+                            "where": {
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "mongodbConnectionString",
+                            "database",
+                            "collection",
+                            "where"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "mongodbConnectionString": "mongodb://localhost:27017",
+                    "database": "${ctx.request.params.database}",
+                    "collection": "${ctx.request.params.collection}",
+                    "where": {
+                        "age": 50
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "This node receives an object with the where clause to delete a document from a mongodb collection if no where clause where provided through the config"
+    },
+    "output": {
+        "type": "object",
+        "description": "The deleted document mongodb response"
+    },
+    "steps": true,
+    "functions": []
+}

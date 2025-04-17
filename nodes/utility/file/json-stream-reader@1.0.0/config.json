@@ -1,0 +1,90 @@
+{
+    "name": "json-stream-reader",
+    "version": "1.0.0",
+    "description": "Stream JSON from a file",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "description": "The number of records to be read in each batch",
+                        "properties": {
+                            "batchSize": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "batchSize"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            },
+            "steps": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "node": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "node",
+                            "type"
+                        ]
+                    }
+                ]
+            }
+        },
+        "required": [
+            "steps"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "batchSize": 1000
+                }
+            },
+            "steps": []
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "This node receives and object that should contain the filepath and mimetime of the file to be read",
+        "properties": {
+            "filepath": {
+                "type": "string",
+                "description": "The path to the file to be read"
+            },
+            "mimetype": {
+                "type": "string",
+                "description": "The mimetype of the file to be read"
+            }
+        },
+        "required": [
+            "filepath",
+            "mimetype"
+        ]
+    },
+    "output": {
+        "type": "array",
+        "description": "The array of JSON objects read from the file"
+    },
+    "steps": true,
+    "functions": []
+}

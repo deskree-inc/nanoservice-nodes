@@ -1,0 +1,116 @@
+{
+    "name": "mongodb-query",
+    "version": "1.0.0",
+    "description": "Query a mongodb database",
+    "group": "DATABASE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "mongodbConnectionString": {
+                                "type": "string"
+                            },
+                            "database": {
+                                "type": "string"
+                            },
+                            "collection": {
+                                "type": "string"
+                            },
+                            "$where": {
+                                "type": "string"
+                            },
+                            "where": {
+                                "type": "object"
+                            },
+                            "projection": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "limit": {
+                                "type": "integer"
+                            },
+                            "skip": {
+                                "type": "integer"
+                            },
+                            "sort": {
+                                "type": "object"
+                            },
+                            "count": {
+                                "type": "boolean"
+                            },
+                            "aggregate": {
+                                "type": "array",
+                                "items": {}
+                            }
+                        },
+                        "required": [
+                            "mongodbConnectionString",
+                            "database",
+                            "collection"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "mongodbConnectionString": "mongodb://localhost:27017",
+                    "database": "bpTests",
+                    "collection": "users",
+                    "$where": "this.age === 24",
+                    "where": {
+                        "name": "Ernesto",
+                        "age": 24
+                    },
+                    "projection": [
+                        "name"
+                    ],
+                    "limit": 1,
+                    "skip": 0,
+                    "sort": {
+                        "age": "desc"
+                    },
+                    "count": false,
+                    "aggregate": [
+                        {
+                            "$facet": {
+                                "metadata": [
+                                    {
+                                        "$count": "total"
+                                    }
+                                ],
+                                "data": []
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input to the mongodb query"
+    },
+    "output": {
+        "type": "object",
+        "description": "The response from the mongodb query"
+    },
+    "steps": true,
+    "functions": []
+}

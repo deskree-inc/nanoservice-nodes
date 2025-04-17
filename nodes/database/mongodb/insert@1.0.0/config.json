@@ -1,0 +1,72 @@
+{
+  "name": "mongodb-insert",
+  "version": "1.0.0",
+  "description": "Inserts a document into a mongodb collection",
+  "group": "DATABASE",
+  "config": {
+    "type": "object",
+    "properties": {
+      "inputs": {
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "object",
+            "properties": {
+              "mongodbConnectionString": {
+                "type": "string"
+              },
+              "database": {
+                "type": "string"
+              },
+              "collection": {
+                "type": "string"
+              },
+              "bulkWrite": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "mongodbConnectionString",
+              "database",
+              "collection",
+              "bulkWrite"
+            ]
+          }
+        },
+        "required": [
+          "properties"
+        ]
+      }
+    },
+    "required": [
+      "inputs"
+    ],
+    "example": {
+      "inputs": {
+        "properties": {
+          "mongodbConnectionString": "mongodb://localhost:27017",
+          "database": "${ctx.request.params.database}",
+          "collection": "${ctx.request.params.collection}",
+          "bulkWrite": false
+        }
+      }
+    }
+  },
+  "inputs": {
+    "anyOf": [
+      {
+        "type": "object"
+      },
+      {
+        "type": "array"
+      }
+    ],
+    "description": "The document(s) to insert"
+  },
+  "output": {
+    "type": "object",
+    "description": "The inserted document mongodb response"
+  },
+  "steps": true,
+  "functions": []
+}

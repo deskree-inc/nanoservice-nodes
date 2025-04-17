@@ -1,0 +1,30 @@
+{
+    "name": "set-timeout",
+    "version": "1.0.0",
+    "description": "This Node allows you to set a timer for a specific amount of time before the next node will be executed.",
+    "group": "UTILITY",
+    "config": {
+        "type": "object",
+        "properties": {
+            "time": {
+                "type": ["string", "number"],
+                "description": "The time, in milliseconds that the timer should wait before the next node will be executed"
+            }
+        },
+        "required": ["time"],
+        "additionalProperties": false,
+        "example": {
+            "time": "1000"
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node accepts time in milliseconds as input"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output of this node is the same as the input"
+    },
+    "steps": false,
+    "functions": []
+}

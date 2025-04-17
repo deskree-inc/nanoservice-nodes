@@ -1,0 +1,123 @@
+{
+    "name": "firebase-storage-download",
+    "version": "1.0.0",
+    "description": "This module is used to get the downloaded file from firebase storage",
+    "group": "STORAGE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "firebaseConfig": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "service_account"
+                                ],
+                                "description": "The type of the credentials file"
+                            },
+                            "project_id": {
+                                "type": "string",
+                                "description": "The project id of the firebase project"
+                            },
+                            "private_key_id": {
+                                "type": "string",
+                                "description": "The private key id of the credentials file"
+                            },
+                            "private_key": {
+                                "type": "string",
+                                "description": "The private key of the credentials file"
+                            },
+                            "client_email": {
+                                "type": "string",
+                                "description": "The client email of the credentials file"
+                            },
+                            "client_id": {
+                                "type": "string",
+                                "description": "The client id of the credentials file"
+                            },
+                            "auth_uri": {
+                                "type": "string",
+                                "description": "The auth uri of the credentials file"
+                            },
+                            "token_uri": {
+                                "type": "string",
+                                "description": "The token uri of the credentials file"
+                            },
+                            "auth_provider_x509_cert_url": {
+                                "type": "string",
+                                "description": "The auth provider x509 cert url of the credentials file"
+                            },
+                            "client_x509_cert_url": {
+                                "type": "string",
+                                "description": "The client x509 cert url of the credentials file"
+                            },
+                            "universe_domain": {
+                                "type": "string",
+                                "description": "The universe domain of the credentials file"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "project_id",
+                            "private_key_id",
+                            "private_key",
+                            "client_email",
+                            "client_id",
+                            "auth_uri",
+                            "token_uri",
+                            "auth_provider_x509_cert_url",
+                            "client_x509_cert_url",
+                            "universe_domain"
+                        ]
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "bucket": {
+                                "type": "string",
+                                "description": "The bucket name of the firebase storage"
+                            }
+                        },
+                        "required": [
+                            "bucket"
+                        ]
+                    }
+                }
+            }
+        },
+        "example": {
+            "inputs": {
+                "firebaseConfig": {
+                    "type": "service_account",
+                    "project_id": "deskree-87e03dbe-e932-4414-b",
+                    "private_key_id": "201689cc3471d934499c05ac0a75fc7505e1e2f5",
+                    "private_key": "<-----BEGIN PRIVATE KEY-----\n==\n-----END PRIVATE KEY-----\n>",
+                    "client_email": "<account.iam.gserviceaccount.com>",
+                    "client_id": "<client_id>",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/<client_email>",
+                    "universe_domain": "googleapis.com"
+                },
+                "properties": {
+                    "bucket": "<bucket_name>"
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "string",
+        "description": "The input of this module is the file path of the file in firebase storage"
+    },
+    "output": {
+        "type": "string",
+        "description": "The output of this module is the buffer of the file from firebase storage"
+    },
+    "steps": true,
+    "functions": []
+}

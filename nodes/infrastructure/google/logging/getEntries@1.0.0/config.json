@@ -1,0 +1,76 @@
+{
+    "name": "getEntries",
+    "version": "1.0.0",
+    "description": "The getEntries node allows you to retriev log from the Google Log Explorer",
+    "group": "NEW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "autoPaginate": {
+                        "type": "boolean"
+                    },
+                    "filter": {
+                        "type": "string"
+                    },
+                    "gaxOptions": {
+                        "type": "object"
+                    },
+                    "log": {
+                        "type": "string"
+                    },
+                    "maxApiCalls": {
+                        "type": "number"
+                    },
+                    "maxResults": {
+                        "type": "number"
+                    },
+                    "orderBy": {
+                        "type": "string"
+                    },
+                    "pageSize": {
+                        "type": "number"
+                    },
+                    "pageToken": {
+                        "type": "string"
+                    },
+                    "resourceNames": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "additionalProperties": false,       
+        "example": {
+            "inputs": {
+                "pageSize": 10,
+                "orderBy": "timestamp desc",
+                "filter": "severity=ERROR",
+                "resourceNames": ["projects/${projectId}"],
+                "pageToken": "TOKEN_FROM_PREVIOUS_RESPONSE"
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

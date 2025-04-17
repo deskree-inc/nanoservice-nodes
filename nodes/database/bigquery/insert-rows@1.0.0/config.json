@@ -1,0 +1,99 @@
+{
+    "name": "bigquery-insert-rows",
+    "version": "1.0.0",
+    "description": "This function manages the process of inserting data into Google BigQuery. It handles the entire workflow from validating input to creating necessary structures and inserting data",
+    "group": "DATABASE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "bigqueryConfig": {
+                                "type": "object",
+                                "required": [
+                                    "type",
+                                    "project_id",
+                                    "private_key_id",
+                                    "private_key",
+                                    "client_email",
+                                    "client_id",
+                                    "auth_uri",
+                                    "token_uri",
+                                    "auth_provider_x509_cert_url",
+                                    "client_x509_cert_url",
+                                    "universe_domain"
+                                ]
+                            },
+                            "datasetId": {
+                                "type": "string",
+                                "description": "The dataset id"
+                            },
+                            "datasetOptions": {
+                                "type": "object"
+                            },
+                            "tableId": {
+                                "type": "string",
+                                "description": "The table id"
+                            },
+                            "tableOptions": {
+                                "type": "object",
+                                "properties": {
+                                    "location": {
+                                        "type": "string",
+                                        "description": "The location of the table"
+                                    },
+                                    "schema": {
+                                        "type": "any"
+                                    }
+                                },
+                                "required": ["location", "schema"]
+                            },
+                            "rows": {
+                                "type": "any"
+                            },
+                            "rowsOptions": {
+                                "type": "any"
+                            },
+                            "uniqueColumns": {
+                                "type": "any"
+                            }
+                        },
+                        "required": ["datasetId", "tableId", "tableOptions", "rows"]
+                    }
+                },
+                "required": ["properties"]
+            }
+        },
+        "example": {
+            "inputs": {
+                "bigqueryConfig": {
+                    "type": "service_account",
+                    "project_id": "<project_id>",
+                    "private_key_id": "<private_key_id>",
+                    "private_key": "<private_key>",
+                    "client_email": "<client_email>",
+                    "client_id": "<client_id>",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "<client_x509_cert_url>",
+                    "universe_domain": "googleapis.com"
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

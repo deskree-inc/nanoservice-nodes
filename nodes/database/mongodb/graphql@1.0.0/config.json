@@ -1,0 +1,76 @@
+{
+    "name": "graphql-mongodb",
+    "version": "1.0.0",
+    "description": "Query a mongodb database",
+    "group": "DATABASE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "mongodbConnectionString": {
+                                "type": "string"
+                            },
+                            "database": {
+                                "type": "string"
+                            },
+                            "collection": {
+                                "type": "string"
+                            },
+                            "schema": {
+                                "type": "object"
+                            }
+                        },
+                        "required": [
+                            "mongodbConnectionString",
+                            "database",
+                            "collection",
+                            "schema"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "mongodbConnectionString": "mongodb://localhost:27017",
+                    "database": "bpTests",
+                    "collection": "users",
+                    "schema": {
+                        "name": "String",
+                        "lastName": "String",
+                        "age": "Number"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "properties": {
+            "query": {
+                "type": "object"
+            },
+            "variables": {
+                "type": "object"
+            }
+        }
+    },
+    "output": {
+        "type": "object",
+        "description": "The response from the mongodb query"
+    },
+    "steps": true,
+    "functions": []
+}

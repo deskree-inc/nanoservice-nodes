@@ -1,0 +1,17 @@
+{
+    "name": "xlsx-stream-writer",
+    "version": "1.0.0",
+    "description": "Stream writes into XLSX file",
+    "group": "MAPPERS",
+    "config": {},
+    "inputs": {
+      "type": "array",
+      "description": "The input of this node is an array of objects"
+    },
+    "output": {
+        "type": "Object",
+        "description": "The output of this node is going to be an object with the batchID, the number of records and the file path"
+    },
+    "steps": false,
+    "functions": []
+}

@@ -1,0 +1,127 @@
+{
+    "name": "download-folder-url",
+    "version": "1.0.0",
+    "description": "This node provides a method to download files from a Google Cloud Storage bucket, compress them into a ZIP archive, upload the archive to Firebase Storage, and return a download URL",
+    "group": "INFRASTRUCTURE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "firebaseConfig": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["service_account"],
+                                "description": "The type of the credentials file"
+                            },
+                            "project_id": {
+                                "type": "string",
+                                "description": "The project id of the firebase project"
+                            },
+                            "private_key_id": {
+                                "type": "string",
+                                "description": "The private key id of the credentials file"
+                            },
+                            "private_key": {
+                                "type": "string",
+                                "description": "The private key of the credentials file"
+                            },
+                            "client_email": {
+                                "type": "string",
+                                "description": "The client email of the credentials file"
+                            },
+                            "client_id": {
+                                "type": "string",
+                                "description": "The client id of the credentials file"
+                            },
+                            "auth_uri": {
+                                "type": "string",
+                                "description": "The auth uri of the credentials file"
+                            },
+                            "token_uri": {
+                                "type": "string",
+                                "description": "The token uri of the credentials file"
+                            },
+                            "auth_provider_x509_cert_url": {
+                                "type": "string",
+                                "description": "The auth provider x509 cert url of the credentials file"
+                            },
+                            "client_x509_cert_url": {
+                                "type": "string",
+                                "description": "The client x509 cert url of the credentials file"
+                            },
+                            "universe_domain": {
+                                "type": "string",
+                                "description": "The universe domain of the credentials file"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "project_id",
+                            "private_key_id",
+                            "private_key",
+                            "client_email",
+                            "client_id",
+                            "auth_uri",
+                            "token_uri",
+                            "auth_provider_x509_cert_url",
+                            "client_x509_cert_url",
+                            "universe_domain"
+                        ]
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "folderPath": {
+                                "type": "string",
+                                "description": "The folder path to download"
+                            },
+                            "bucketName": {
+                                "type": "string",
+                                "description": "The bucket name of the firebase storage"
+                            },
+                            "destinationPath": {
+                                "type": "string",
+                                "description": "The destination path to download the folder"
+                            }
+                        },
+                        "required": ["folderPath"]
+                    }
+                }
+            }
+        },
+        "example": {
+            "inputs": {
+                "firebaseConfig": {
+                    "type": "service_account",
+                    "project_id": "deskree-87e03dbe-e932-4414-b",
+                    "private_key_id": "201689cc3471d934499c05ac0a75fc7505e1e2f5",
+                    "private_key": "<-----BEGIN PRIVATE KEY-----\n==\n-----END PRIVATE KEY-----\n>",
+                    "client_email": "<account.iam.gserviceaccount.com>",
+                    "client_id": "<client_id>",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/<client_email>",
+                    "universe_domain": "googleapis.com"
+                },
+                "properties": {
+                    "folderPath": "reports/1234"
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

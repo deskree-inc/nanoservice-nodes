@@ -1,0 +1,82 @@
+{
+    "name": "try-catch",
+    "version": "1.0.0",
+    "description": "A TryCatch node does not process a message in any way, it represents only a decision point in a message flow",
+    "group": "CORE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "try": {
+                "type": "object",
+                "properties": {
+                    "steps": {
+                        "type": "array",
+                        "items": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "node": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["name", "node", "type"]
+                            }
+                        ]
+                    }
+                },
+                "required": ["steps"]
+            },
+            "catch": {
+                "type": "object",
+                "properties": {
+                    "steps": {
+                        "type": "array",
+                        "items": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "node": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["name", "node", "type"]
+                            }
+                        ]
+                    }
+                },
+                "required": ["steps"]
+            }
+        },
+        "required": ["try", "catch"],
+        "example": {
+            "try": {
+                "steps": []
+            },
+            "catch": {
+                "steps": []
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "Any data"
+    },
+    "output": {
+        "type": "any",
+        "description": "Any data"
+    },
+    "steps": true,
+    "functions": []
+}

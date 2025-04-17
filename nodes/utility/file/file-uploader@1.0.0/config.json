@@ -1,0 +1,51 @@
+{
+    "name": "file-uploader",
+    "version": "1.0.0",
+    "description": "Upload file to the server",
+    "group": "STORAGE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "uploadDir": {
+                                "type": "string"
+                            },
+                            "keepName": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "uploadDir": "",
+                    "keepName": false
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "binary",
+        "description": "The input is the request containing the file to be uploaded."
+    },
+    "output": {
+        "type": "object",
+        "description": "The output is a file object containing the file's path, name, size, and type. "
+    },
+    "steps": true,
+    "functions": []
+}

@@ -1,0 +1,83 @@
+{
+    "name": "variable-setter",
+    "version": "1.0.0",
+    "description": "Stores a node result in a variable",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "variables": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": {}
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "value"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "node": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "variables": [
+                        {
+                            "name": "variable_name",
+                            "value": "variable value"
+                        }
+                    ],
+                    "node": {
+                        "name": "collectionConfig"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node receives any result of the previous node"
+    },
+    "output": {
+        "type": "object",
+        "description": "The value of the variable"
+    },
+    "steps": false,
+    "functions": []
+}

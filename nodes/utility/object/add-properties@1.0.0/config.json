@@ -1,0 +1,51 @@
+{
+  "name": "add-properties",
+  "version": "1.0.0",
+  "description": "Create new properties in json object",
+  "group": "JSON",
+  "config": {
+    "type": "object",
+    "properties": {
+      "inputs": {
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "object",
+            "description": "Object that contains the properties that will be added to the json object"
+          }
+        },
+        "required": [
+          "properties"
+        ]
+      }
+    },
+    "required": [
+      "inputs"
+    ],
+    "example": {
+      "inputs": {
+        "properties": {
+          "owner": "",
+          "uniqueKey": "js/func.uuid()",
+          "createdAt": "js/new Date().toISOString()",
+          "updatedAt": "js/new Date().toISOString()"
+        }
+      }
+    }
+  },
+  "inputs": {
+    "type": "object",
+    "description": "This node receive an json object"
+  },
+  "output": {
+    "type": "object",
+    "description": "This node return an json object with new properties"
+  },
+  "steps": {
+    "type": "boolean",
+    "default": false
+  },
+  "functions": {
+    "type": "array"
+  }
+}

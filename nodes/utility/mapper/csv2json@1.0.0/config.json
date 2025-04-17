@@ -1,0 +1,17 @@
+{
+    "name": "csv2json",
+    "version": "1.0.0",
+    "description": "Converts CSV to JSON",
+    "group": "MAPPERS",
+    "config": {},
+    "inputs": {
+        "type": "string",
+        "description": "CSV in string format"
+    },
+    "output": {
+        "type": "array",
+        "description": "JSON array of objects"
+    },
+    "steps": false,
+    "functions": []
+}

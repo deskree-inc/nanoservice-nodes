@@ -1,0 +1,87 @@
+{
+    "name": "google-drive-upload-file",
+    "version": "1.0.0",
+    "description": "Uploads a file to Google Drive from a local path or public URL.",
+    "group": "STORAGE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "googleConfig": {
+                        "type": "object",
+                        "properties": {
+                            "clientId": {
+                                "type": "string",
+                                "description": "Google API Client ID"
+                            },
+                            "clientSecret": {
+                                "type": "string",
+                                "description": "Google API Client Secret"
+                            },
+                            "refreshToken": {
+                                "type": "string",
+                                "description": "Google API Refresh Token"
+                            }
+                        },
+                        "required": [
+                            "clientId",
+                            "clientSecret",
+                            "refreshToken"
+                        ]
+                    },
+                    "isLocal": {
+                        "type": "boolean",
+                        "description": "Indicates whether the file is local or from a URL"
+                    },
+                    "filePathOrUrl": {
+                        "type": "string",
+                        "description": "Local file path or public URL of the file to upload"
+                    },
+                    "fileName": {
+                        "type": "string",
+                        "description": "Name of the file in Google Drive"
+                    },
+                    "mimeType": {
+                        "type": "string",
+                        "description": "MIME type of the file"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "Destination path in Google Drive where the file should be uploaded"
+                    }
+                },
+                "required": [
+                    "googleConfig",
+                    "isLocal",
+                    "filePathOrUrl"
+                ]
+            }
+        },
+        "example": {
+            "inputs": {
+                "googleConfig": {
+                    "clientId": "<YOUR_GOOGLE_CLIENT_ID>",
+                    "clientSecret": "<YOUR_GOOGLE_CLIENT_SECRET>",
+                    "refreshToken": "<YOUR_GOOGLE_REFRESH_TOKEN>"
+                },
+                "isLocal": false,
+                "filePathOrUrl": "https://example.com/path/to/your/file.jpg",
+                "fileName": "uploaded-file.jpg",
+                "mimeType": "image/jpeg",
+                "path": "/Folder1/Subfolder2"
+            }
+        }
+    },
+    "inputs": {
+        "type": "string",
+        "description": "The input of this module is the local file path or public URL of the file to upload"
+    },
+    "output": {
+        "type": "object",
+        "description": "The output of this module is the uploaded file data from Google Drive, including file ID and name"
+    },
+    "steps": true,
+    "functions": []
+}

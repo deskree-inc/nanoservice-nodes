@@ -1,0 +1,110 @@
+{
+    "name": "deskree-logger",
+    "version": "1.0.0",
+    "description": "Node Descripcion",
+    "group": "DESKREE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string",
+                        "description": "Name of the service where the logger is used"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "Deskree project id"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "enum": [
+                            "DEFAULT",
+                            "DEBUG",
+                            "INFO",
+                            "NOTICE",
+                            "WARNING",
+                            "ERROR",
+                            "CRITICAL",
+                            "ALERT",
+                            "EMERGENCY"
+                        ],
+                        "description": "Log message severity"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "description": "HTTP status code"
+                    },
+                    "message": {
+                        "type": ["string", "object"],
+                        "description": "Log entry message"
+                    },
+                    "sourceLocation": {
+                        "type": "object",
+                        "properties": {
+                            "file": {
+                                "type": "string"
+                            },
+                            "line": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "integer"
+                                    }
+                                ]
+                            },
+                            "function": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["file", "line", "function"],
+                        "description": "Object containing file name, line number, and function name"
+                    },
+                    "labels": {
+                        "type": "array",
+                        "items": [
+                            {
+                                "type": "object"
+                            }
+                        ],
+                        "description": "Object representing the labels associated with the log. See below for more examples of Deskree labels being used."
+                    }
+                },
+                "required": ["service", "projectId", "severity", "sourceLocation"]
+            }
+        },
+        "required": ["inputs"],
+        "example": {
+            "inputs": {
+                "service": "deskree-logger",
+                "projectId": "deskree-project_id",
+                "severity": "DEFAULT",
+                "status": 200,
+                "message": "Message",
+                "sourceLocation": {
+                    "file": "deskree-file",
+                    "line": 200,
+                    "function": "deskree-function"
+                },
+                "labels": [
+                    {
+                        "billable": "billable"
+                    }
+                ]
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

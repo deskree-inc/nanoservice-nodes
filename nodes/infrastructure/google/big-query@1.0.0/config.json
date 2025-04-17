@@ -1,0 +1,206 @@
+{
+    "name": "bigquery",
+    "version": "1.0.0",
+    "description": "Google BigQuery Client",
+    "group": "QUERY",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "bigqueryConfig": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["service_account"],
+                                "description": "The type of the credentials file"
+                            },
+                            "project_id": {
+                                "type": "string",
+                                "description": "The project id of the firebase project"
+                            },
+                            "private_key_id": {
+                                "type": "string",
+                                "description": "The private key id of the credentials file"
+                            },
+                            "private_key": {
+                                "type": "string",
+                                "description": "The private key of the credentials file"
+                            },
+                            "client_email": {
+                                "type": "string",
+                                "description": "The client email of the credentials file"
+                            },
+                            "client_id": {
+                                "type": "string",
+                                "description": "The client id of the credentials file"
+                            },
+                            "auth_uri": {
+                                "type": "string",
+                                "description": "The auth uri of the credentials file"
+                            },
+                            "token_uri": {
+                                "type": "string",
+                                "description": "The token uri of the credentials file"
+                            },
+                            "auth_provider_x509_cert_url": {
+                                "type": "string",
+                                "description": "The auth provider x509 cert url of the credentials file"
+                            },
+                            "client_x509_cert_url": {
+                                "type": "string",
+                                "description": "The client x509 cert url of the credentials file"
+                            },
+                            "universe_domain": {
+                                "type": "string",
+                                "description": "The universe domain of the credentials file"
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "project_id",
+                            "private_key_id",
+                            "private_key",
+                            "client_email",
+                            "client_id",
+                            "auth_uri",
+                            "token_uri",
+                            "auth_provider_x509_cert_url",
+                            "client_x509_cert_url",
+                            "universe_domain"
+                        ]
+                    },
+                    "queryOptions": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "enum": ["SELECT", "COUNT"],
+                                "description": "The type of the query"
+                            },
+                            "table": {
+                                "type": "string",
+                                "description": "The table name of the query"
+                            },
+                            "where": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "attribute": {
+                                            "type": "string",
+                                            "description": "The field of the query"
+                                        },
+                                        "operator": {
+                                            "type": "string",
+                                            "enum": [
+                                                ">",
+                                                "<",
+                                                "=",
+                                                "<>",
+                                                ">=",
+                                                "<=",
+                                                "!=",
+                                                "STARTS_WITH",
+                                                "ENDS_WITH",
+                                                "CONTAINS_SUBSTR"
+                                            ],
+                                            "description": "The operator of the query"
+                                        },
+                                        "value": {
+                                            "type": "string",
+                                            "description": "The value of the query"
+                                        }
+                                    },
+                                    "required": ["attribute", "operator", "value"]
+                                }
+                            },
+                            "limit": {
+                                "type": "number",
+                                "description": "The limit of the query"
+                            },
+                            "group": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "description": "The field of the query"
+                                }
+                            },
+                            "interval": {
+                                "type": "string",
+                                "description": "The interval of the query",
+                                "enum": ["minute", "hour", "day", "week", "month", "year"]
+                            },
+                            "sorted": {
+                                "type": "object",
+                                "properties": {
+                                    "attribute": {
+                                        "type": "string",
+                                        "description": "The field of the query"
+                                    },
+                                    "order": {
+                                        "type": "string",
+                                        "enum": ["ASC", "DESC"],
+                                        "description": "The order of the query"
+                                    }
+                                },
+                                "required": ["attribute", "order"]
+                            }
+                        },
+                        "required": ["table"]
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "The query to execute"
+                    }
+                }
+            }
+        },
+        "example": {
+            "inputs": {
+                "bigqueryConfig": {
+                    "type": "service_account",
+                    "project_id": "<project_id>",
+                    "private_key_id": "<private_key_id>",
+                    "private_key": "<private_key>",
+                    "client_email": "<client_email>",
+                    "client_id": "<client_id>",
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                    "client_x509_cert_url": "<client_x509_cert_url>",
+                    "universe_domain": "googleapis.com"
+                },
+                "queryOptions": {
+                    "where": [
+                        {
+                            "attribute": "name",
+                            "operator": "=",
+                            "value": "John"
+                        }
+                    ],
+                    "limit": 10,
+                    "group": ["name"],
+                    "interval": "day",
+                    "sorted": {
+                        "attribute": "name",
+                        "order": "ASC"
+                    }
+                },
+                "query": "SELECT * FROM `bigquery-public-data.samples.shakespeare` LIMIT 10"
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "The query or the configuration to create the query"
+    },
+    "output": {
+        "type": "array",
+        "description": "The result of the query"
+    },
+    "steps": false,
+    "functions": []
+}

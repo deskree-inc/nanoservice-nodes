@@ -1,0 +1,86 @@
+{
+    "name": "jsonschema",
+    "version": "1.0.0",
+    "description": "Validate the JSON object using json-schema standars",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "properties": {
+                                        "type": "object"
+                                    },
+                                    "required": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": {
+                                        "type": "boolean"
+                                    }
+                                },
+
+                                "required": ["properties"]
+                            }
+                        },
+                        "required": ["schema"]
+                    }
+                },
+                "required": ["properties"]
+            }
+        },
+        "required": ["inputs"],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "schema": {
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "city": {
+                                "type": "string"
+                            },
+                            "age": {
+                                "type": "string"
+                            },
+                            "owner": {
+                                "type": "string"
+                            },
+                            "uniqueKey": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["name", "city", "age"],
+                        "additionalProperties": false
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "This node receives the object to be validated"
+    },
+    "output": {
+        "type": "object",
+        "description": "This node returns the valid object otherwise a undefined"
+    },
+    "steps": false,
+    "functions": []
+}

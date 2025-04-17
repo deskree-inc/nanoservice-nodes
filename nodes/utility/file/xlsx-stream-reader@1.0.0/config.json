@@ -1,0 +1,79 @@
+{
+    "name": "xlsx-stream-reader",
+    "version": "1.0.0",
+    "description": "Stream Excel files to JSON objects",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "batchSize": {
+                                "type": "integer",
+                                "default": 500,
+                                "description": "The number of rows to read at a time."
+                            }
+                        },
+                        "required": ["batchSize"]
+                    }
+                },
+                "required": ["properties"]
+            }
+        },
+        "steps": {
+            "type": "array",
+            "description": "The steps to be executed by the node",
+            "item": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the step"
+                    },
+                    "node": {
+                        "type": "string",
+                        "description": "The name of the node to be executed"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the node to be executed"
+                    }
+                },
+                "required": ["name", "node", "type"]
+            }
+        },
+        "required": ["inputs", "steps"],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "batchSize": 500
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "This node receives and object that should contain the filepath and mimetime of the file to be read",
+        "properties": {
+            "filepath": {
+                "type": "string",
+                "description": "The path to the file to be read"
+            },
+            "mimetype": {
+                "type": "string",
+                "description": "The mimetype of the file to be read"
+            }
+        },
+        "required": ["filepath", "mimetype"]
+    },
+    "output": {
+        "type": "array",
+        "description": "The output is an array of objects, each object represents a row in the Excel file."
+    },
+    "steps": true,
+    "functions": []
+}

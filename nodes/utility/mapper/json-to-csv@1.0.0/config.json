@@ -1,0 +1,17 @@
+{
+    "name": "json-to-xml",
+    "version": "1.0.0",
+    "description": "This node converts a JSON data to a XML data",
+    "group": "MAPPERS",
+    "config": {},
+    "inputs": {
+        "type": "object",
+        "description": "The input of this node is a JSON data"
+    },
+    "output": {
+        "type": "string",
+        "description": "The output of this node is a XML data"
+    },
+    "steps": false,
+    "functions": []
+}

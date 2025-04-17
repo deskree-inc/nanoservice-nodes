@@ -1,0 +1,77 @@
+{
+    "name": "postgresql-update",
+    "version": "1.0.0",
+    "description": "Node that allows you to update records into a postgresql database",
+    "group": "NEW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "connection": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The host of the postgresql server",
+                        "default": "localhost"
+                    },
+                    "port": {
+                        "type": "number",
+                        "description": "The port of the postgresql server",
+                        "default": 5432
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "The user of the postgresql server",
+                        "default": "root"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "The password of the postgresql server",
+                        "default": ""
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database of the postgresql server",
+                        "default": "test"
+                    }
+                }
+            },
+            "table": {
+                "type": "string",
+                "description": "The table of the postgresql server",
+                "default": "test"
+            },
+            "where": {
+                "type": ["object", "string"],
+                "description": "The where clause of the postgresql server",
+                "default": {}
+            }
+        },
+        "required": [
+            "connection",
+            "table",
+            "where"
+        ],
+        "additionalProperties": false,
+        "example": {
+            "connection": {
+                "host": "127.0.0.1",
+                "port": 5432,
+                "user": "<user>",
+                "password": "<password>",
+                "database": "<database>"
+            },
+            "table": "<table_name>"
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

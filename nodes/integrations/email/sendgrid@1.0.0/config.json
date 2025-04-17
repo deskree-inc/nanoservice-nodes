@@ -1,0 +1,89 @@
+{
+    "name": "sendgrid",
+    "version": "1.0.0",
+    "description": "SendGrid API",
+    "group": "MAIL",
+    "config": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "properties": {
+                "type": "object",
+                "properties": {
+                  "sendGridApiKey": {
+                    "type": "string",
+                    "description": "SendGrid API Key"
+                  },
+                  "to": {
+                    "type": "array",
+                    "description": "Array of emails",
+                    "items": [
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "type": "string",
+                    "description": "Subject of the email"
+                  },
+                  "html": {
+                    "type": "string",
+                    "description": "HTML of the email"
+                  },
+                  "options": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "sendGridApiKey",
+                  "to",
+                  "subject",
+                  "html"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "properties"
+            ]
+          }
+        },
+        "required": [
+          "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "sendGridApiKey": "<sendGridApiKey>",
+                    "to": ["ernesto@deskree.com"],
+                    "subject": "Hello, World!",
+                    "html": "<h1>Hello, {{-name-}} World!</h1>",
+                    "options": {
+                        "from": "no-reply@deskree.com",
+                        "templateId": "d-30dd024fc5d4445aada12ebf3b6f4abb",
+                        "substitutions": {
+                            "-name-": "Ernesto Deskree"
+                        }
+                    }
+                }
+            }
+        }
+      },
+    "inputs": {
+        "type": "any",
+        "description": "The input of the node will be the data of the previous node"
+    },
+    "output": {
+        "type": "array",
+        "description": "The output of the node will be the data of the previous node"
+    },
+    "steps": false,
+    "functions": []
+}

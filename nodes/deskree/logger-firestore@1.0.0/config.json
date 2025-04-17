@@ -1,0 +1,17 @@
+{
+    "name": "logger-firestore",
+    "version": "1.0.0",
+    "description": "This node stores logs into Firestore",
+    "group": "DESKREE",
+    "config": {},
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

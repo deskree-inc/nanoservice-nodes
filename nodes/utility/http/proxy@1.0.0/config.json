@@ -1,0 +1,120 @@
+{
+    "name": "proxy",
+    "version": "1.0.0",
+    "description": "This node is used to make an API call to the proxy server",
+    "group": "API",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "proxy": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "host": {
+                                                "type": "string"
+                                            },
+                                            "path": {
+                                                "type": "string"
+                                            },
+                                            "pathRewrite": {
+                                                "type": "string"
+                                            },
+                                            "options": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "remove": {
+                                                        "type": "array",
+                                                        "items": {}
+                                                    },
+                                                    "replace": {
+                                                        "type": "object"
+                                                    },
+                                                    "query": {
+                                                        "type": "object"
+                                                    },
+                                                    "appendPath": {
+                                                        "type": "string"
+                                                    },
+                                                    "prependPath": {
+                                                        "type": "string"
+                                                    },
+                                                    "add": {
+                                                        "type": "boolean"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "host",
+                                            "path"
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "proxy"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "proxy": [
+                        {
+                            "host": "https://bp-firestore-stack.api-dev.deskree.com",
+                            "path": "/api/v1/rest/collections/users/:id",
+                            "pathRewrite": "/api/v1/rest/collections/users/${ctx.request.params.id}",
+                            "options": {
+                                "remove": [
+                                    "test",
+                                    "api"
+                                ],
+                                "replace": {
+                                    "users": "users"
+                                },
+                                "query": {
+                                    "additional": "test"
+                                },
+                                "appendPath": "",
+                                "prependPath": "api",
+                                "add": true
+                            }
+                        },
+                        {
+                            "host": "https://bp-firestore-stack.api-dev.deskree.com",
+                            "path": "/api/v1/rest/collections/*",
+                            "pathRewrite": "/api/v1/rest/collections/users"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "This node receives any input from the previous node"
+    },
+    "output": {
+        "type": "object",
+        "description": "The response from the proxy server"
+    },
+    "steps": true,
+    "functions": []
+}

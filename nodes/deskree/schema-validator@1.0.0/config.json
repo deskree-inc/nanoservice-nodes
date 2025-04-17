@@ -1,0 +1,60 @@
+{
+    "name": "deskree-schema-validator",
+    "version": "1.0.0",
+    "description": "Validates a JSON object against a zod schema for deskree",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "variables": {
+                                "type": "object",
+                                "properties": {
+                                    "zodSchema": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "zodSchema"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "variables"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "variables": {
+                        "zodSchema": "collectionConfig"
+                    }
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "object",
+        "description": "The input object to validate"
+    },
+    "output": {
+        "type": "object",
+        "description": "The validation result"
+    },
+    "steps": false,
+    "functions": []
+}

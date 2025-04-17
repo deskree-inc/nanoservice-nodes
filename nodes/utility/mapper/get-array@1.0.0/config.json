@@ -1,0 +1,50 @@
+{
+    "name": "get-array",
+    "version": "1.0.0",
+    "description": "Get array from a json property",
+    "group": "JSON",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "property": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "property"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "property": "data"
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "objec",
+        "description": "Object that contains the property to get extracted"
+    },
+    "output": {
+        "type": "array",
+        "description": "Array of json objects or values"
+    },
+    "steps": false,
+    "functions": []
+}

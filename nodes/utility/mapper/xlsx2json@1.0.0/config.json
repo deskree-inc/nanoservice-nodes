@@ -1,0 +1,17 @@
+{
+    "name": "xlsx2json",
+    "version": "1.0.0",
+    "description": "Converts XLSX file to JSON",
+    "group": "MAPPERS",
+    "config": {},
+    "inputs": {
+        "type": "binary",
+        "description": "XLSX file using"
+    },
+    "output": {
+        "type": "array",
+        "description": "JSON array of objects"
+    },
+    "steps": false,
+    "functions": []
+}

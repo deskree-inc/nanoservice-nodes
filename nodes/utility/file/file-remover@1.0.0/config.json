@@ -1,0 +1,50 @@
+{
+    "name": "file-remover",
+    "version": "1.0.0",
+    "description": "Upload file to the server",
+    "group": "STORAGE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "filePath": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "filePath"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "filePath": ""
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "string",
+        "description": "The input is the string path of the file to delete"
+    },
+    "output": {
+        "type": "string",
+        "description": "The output is the string of the file path deleted"
+    },
+    "steps": false,
+    "functions": []
+}

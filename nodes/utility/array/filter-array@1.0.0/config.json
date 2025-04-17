@@ -1,0 +1,41 @@
+{
+    "name": "filter-array",
+    "version": "1.0.0",
+    "description": "Filters an array",
+    "group": "MAPPERS",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "condition": {
+                        "type": "string",
+                        "description": "Condition to filter the array"
+                    }
+                },
+                "required": [
+                    "condition"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "condition": "data.valid === true"
+            }
+        }
+    },
+    "inputs": {
+        "type": "array",
+        "description": "Array to filter"
+    },
+    "output": {
+        "type": "object",
+        "description": "Filtered array"
+    },
+    "steps": false,
+    "functions": []
+}

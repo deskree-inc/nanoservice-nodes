@@ -1,0 +1,50 @@
+{
+    "name": "while",
+    "version": "1.0.0",
+    "description": "The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement",
+    "group": "CONTROL_FLOW",
+    "config": {
+        "type": "object",
+        "properties": {
+            "condition": {
+                "type": ["string", "boolean"],
+                "description": "An expression evaluated before each pass through the loop. If this condition evaluates to true, statement is executed"
+            },
+            "steps": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "node": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": ["name", "node", "type"]
+                    }
+                ]
+            }
+        },
+        "required": ["steps", "condition"],
+        "example": {
+            "condition": "ctx.vars.index < 10",
+            "steps": []
+        }
+    },
+    "inputs": {
+        "type": "array",
+        "description": "JSON array of objects"
+    },
+    "output": {
+        "type": "array",
+        "description": "JSON array of objects"
+    },
+    "steps": true,
+    "functions": []
+}

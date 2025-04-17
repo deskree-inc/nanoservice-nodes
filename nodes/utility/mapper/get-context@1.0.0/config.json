@@ -1,0 +1,50 @@
+{
+    "name": "get-context",
+    "version": "1.0.0",
+    "description": "Get value from BlueprintContext",
+    "group": "JSON",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "object",
+                        "properties": {
+                            "context": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "context"
+                        ]
+                    }
+                },
+                "required": [
+                    "properties"
+                ]
+            }
+        },
+        "required": [
+            "inputs"
+        ],
+        "example": {
+            "inputs": {
+                "properties": {
+                    "context": "request.body"
+                }
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "Value from BlueprintContext for the next node"
+    },
+    "output": {
+        "type": "any",
+        "description": "Value from BlueprintContext for the next node"
+    },
+    "steps": false,
+    "functions": []
+}

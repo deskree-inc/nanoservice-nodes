@@ -1,0 +1,37 @@
+{
+    "name": "deskree-graphql-firestore",
+    "version": "1.0.0",
+    "description": "This node enables the use of a GraphQL API to interact with a Firestore database",
+    "group": "DESKREE",
+    "config": {
+        "type": "object",
+        "properties": {
+            "inputs": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "enum": ["collection", "schema"]
+                    }
+                },
+                "required": ["type"]
+            }
+        },
+        "required": ["inputs"],
+        "example": {
+            "inputs": {
+                "type": "collection"
+            }
+        }
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The input description goes here"
+    },
+    "output": {
+        "type": "any",
+        "description": "The output description goes here"
+    },
+    "steps": false,
+    "functions": []
+}

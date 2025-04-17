@@ -1,0 +1,46 @@
+{
+    "name": "pubsub",
+    "version": "1.0.0",
+    "description": "Send data to a pubsub topic",
+    "group": "COULD",
+    "config": {
+        "type": "object",
+        "properties": {
+            "pubSubCredentials": {
+                "type": "object",
+                "properties": {
+                    "projectId": {
+                        "type": "string"
+                    },
+                    "keyFilename": {
+                        "type": "string"
+                    },
+                    "credentials": {
+                        "type": "object"
+                    }
+                },
+                "required": ["projectId", "keyFilename"]
+            },
+            "topic": {
+                "type": "string"
+            },
+            "data": {
+                "type": ["string", "object", "array"]
+            },
+            "attributes": {
+                "type": "object"
+            }
+        },
+        "required": ["topic"]
+    },
+    "inputs": {
+        "type": "any",
+        "description": "The data to be sent to the pubsub topic"
+    },
+    "output": {
+        "type": "any",
+        "description": "The data sended to the pubsub topic"
+    },
+    "steps": false,
+    "functions": []
+}

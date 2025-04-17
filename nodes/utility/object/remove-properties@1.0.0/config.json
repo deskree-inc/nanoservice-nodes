@@ -1,0 +1,49 @@
+{
+    "name": "remove-properties",
+    "version": "1.0.0",
+    "description": "Remove properties in json object",
+    "group": "JSON",
+    "config": {
+        "type": "object",
+        "properties": {
+          "inputs": {
+            "type": "object",
+            "properties": {
+              "properties": {
+                "type": "array",
+                "description": "Properties to be removed",
+                "items": [
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "properties"
+            ]
+          }
+        },
+        "required": [
+          "inputs"
+        ],
+        "example": {
+          "inputs": {
+            "properties": [
+              "name",
+              "age"
+            ]
+          }
+        }
+      },
+    "inputs": {
+        "type": "object",
+        "description": "This node receive an json object that will be removed properties"
+    },
+    "output": {
+        "type": "object",
+        "description": "This node return an json object with removed properties"
+    },
+    "steps": false,
+    "functions": []
+}
