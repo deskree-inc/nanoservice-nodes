@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/nodes/infrastructure/ion/remote@1.0.0"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "npm"
+    directory: "/nodes/utility/http/proxy@1.0.0"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
